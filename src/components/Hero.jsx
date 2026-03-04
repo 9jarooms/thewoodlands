@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import heroBg from '../assets/hero-bg-final.jpg';
 import heroBgMobile from '../assets/hero-bg-final-mobile.jpg';
+import CountdownTimer from './CountdownTimer';
 
 const WHATSAPP_URL = "https://wa.me/2348092555222?text=Hello%2C%20I%20am%20interested%20in%20The%20Woodlands%2C%20please%20send%20me%20the%20full%20project%20details.";
 
@@ -27,15 +28,16 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-3xl"
+          className="max-w-3xl flex flex-col items-start"
         >
+          <CountdownTimer />
+
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Own a Verified Luxury Apartment in Abuja —{' '}
-            <span className="text-gold">Before It's Built, Before Prices Rise.</span>
+            Secure your place in Wuye's next landmark community.
           </h1>
 
           <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl font-light leading-relaxed">
-            3-bedroom apartments from ₦162M. Government-backed. Milestone payments. Q2 2028 delivery.
+            Premium homes starting from ₦178M. Government-backed, Official JV, and verifiable at AGIS.
           </p>
 
           <a

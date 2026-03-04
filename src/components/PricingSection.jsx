@@ -4,11 +4,11 @@ import { motion } from 'framer-motion';
 const WHATSAPP_URL = "https://wa.me/2348092555222?text=Hello%2C%20I%20am%20interested%20in%20The%20Woodlands%2C%20please%20send%20me%20the%20full%20pricing%20breakdown.";
 
 const units = [
-    { type: '1 Bed Apartment', price: '₦86,240,000', deposit: '35% deposit, 12–18 months' },
-    { type: '3 Bed Apartment', price: '₦162,468,800', deposit: '35% deposit, 12–18 months' },
-    { type: '3 Bed Flat (Luxury)', price: '₦214,814,400', deposit: '35% deposit, 12–18 months' },
-    { type: '3 Bed Maisonette', price: '₦209,542,400', deposit: '35% deposit, 12–18 months' },
-    { type: '4 Bed Terrace', price: '₦332,528,000', deposit: '35% deposit, 12–18 months' },
+    { type: '3 Bed Flat (Standard)', size: '231 sqm', standardPrice: '₦237,500,000', offtakerPrice: '₦178,000,000' },
+    { type: '3 Bed Flat (Luxury)', size: '260 sqm', standardPrice: '₦284,000,000', offtakerPrice: '₦213,000,000' },
+    { type: '4 Bed Terrace', size: '330 sqm', standardPrice: '₦462,000,000', offtakerPrice: '₦346,500,000' },
+    { type: '5 Bed Semi Detached', size: '450 sqm', standardPrice: '₦636,000,000', offtakerPrice: '₦477,000,000' },
+    { type: '6 Bed Standalone', size: '510 sqm', standardPrice: '₦780,000,000', offtakerPrice: '₦585,000,000' },
 ];
 
 const PricingSection = () => {
@@ -43,8 +43,9 @@ const PricingSection = () => {
                             <thead>
                                 <tr className="bg-coffee text-white">
                                     <th className="text-left py-4 px-6 text-xs uppercase tracking-widest font-bold">Unit Type</th>
-                                    <th className="text-left py-4 px-6 text-xs uppercase tracking-widest font-bold">Outright Price</th>
-                                    <th className="text-left py-4 px-6 text-xs uppercase tracking-widest font-bold">Flexible Plan</th>
+                                    <th className="text-left py-4 px-6 text-xs uppercase tracking-widest font-bold">Floor Area</th>
+                                    <th className="text-left py-4 px-6 text-xs uppercase tracking-widest font-bold">Standard Price</th>
+                                    <th className="text-left py-4 px-6 text-xs uppercase tracking-widest font-bold">Offtaker Price</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -54,8 +55,9 @@ const PricingSection = () => {
                                         className={`border-b border-coffee/5 ${index % 2 === 0 ? 'bg-white' : 'bg-sand/30'} hover:bg-gold/5 transition-colors`}
                                     >
                                         <td className="py-4 px-6 font-medium text-coffee">{unit.type}</td>
-                                        <td className="py-4 px-6 text-coffee font-semibold">{unit.price}</td>
-                                        <td className="py-4 px-6 text-gray-600 text-sm">{unit.deposit}</td>
+                                        <td className="py-4 px-6 text-gray-600 text-sm">{unit.size}</td>
+                                        <td className="py-4 px-6 text-gray-500 line-through text-sm">{unit.standardPrice}</td>
+                                        <td className="py-4 px-6 text-coffee font-semibold">{unit.offtakerPrice}</td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -72,11 +74,21 @@ const PricingSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.3, delay: index * 0.05 }}
-                            className="bg-white p-5 border border-coffee/5"
+                            className="bg-white p-5 border border-coffee/5 relative"
                         >
-                            <h3 className="font-bold text-coffee mb-2">{unit.type}</h3>
-                            <p className="text-xl font-semibold text-coffee mb-1">{unit.price}</p>
-                            <p className="text-xs text-gray-500">{unit.deposit}</p>
+                            <div className="absolute top-4 right-4 bg-gold/10 text-gold text-xs font-bold px-2 py-1 rounded">
+                                OFFTAKER
+                            </div>
+                            <h3 className="font-bold text-coffee mb-1">{unit.type}</h3>
+                            <p className="text-sm text-gray-500 mb-3 block">{unit.size}</p>
+                            <div className="flex flex-col gap-1">
+                                <p className="text-xs text-gray-500 uppercase tracking-wider">Offtaker Price</p>
+                                <p className="text-xl font-bold text-coffee">{unit.offtakerPrice}</p>
+                            </div>
+                            <div className="mt-2 pt-2 border-t border-gray-100">
+                                <p className="text-[10px] text-gray-400 uppercase tracking-wider">Standard Price</p>
+                                <p className="text-sm text-gray-400 line-through">{unit.standardPrice}</p>
+                            </div>
                         </motion.div>
                     ))}
                 </div>

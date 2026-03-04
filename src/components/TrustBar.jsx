@@ -1,28 +1,37 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const trustItems = [
-    { icon: '🏛️', text: 'Official JV — Enugu State Govt' },
-    { icon: '📄', text: 'Global C of O — Verified at Ministry of Lands' },
-    { icon: '🔨', text: 'Breaking Ground Q1 2026 — Construction Underway' },
-];
+import logo1 from '../assets/logo1.png';
+import logo2 from '../assets/logo2.png';
+import logo3 from '../assets/logo3.png';
+import logo4 from '../assets/logo4.png';
 
 const TrustBar = () => {
+    const logos = [
+        { name: 'Enugu State Government', src: logo1 },
+        { name: 'Tout Moi', src: logo2 },
+        { name: 'Intraurban', src: logo3 },
+        { name: 'Brand Logo 4', src: logo4 }
+    ];
+
     return (
-        <section className="bg-coffee border-t border-white/10">
-            <div className="container mx-auto py-6">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
-                    {trustItems.map((item, index) => (
+        <section className="bg-coffee border-t border-white/10 overflow-hidden">
+            <div className="container mx-auto py-8 lg:py-10 px-4">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 lg:gap-20 items-center justify-items-center">
+                    {logos.map((logo, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 10 }}
+                            initial={{ opacity: 0, y: 15 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: index * 0.1 }}
-                            className="flex items-center gap-3 justify-center text-center md:text-left"
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
+                            className="flex items-center justify-center w-full transition-all duration-500 hover:scale-105"
                         >
-                            <span className="text-2xl" role="img" aria-hidden="true">{item.icon}</span>
-                            <span className="text-sm text-white/90 font-medium">{item.text}</span>
+                            <img
+                                src={logo.src}
+                                alt={`${logo.name} Logo`}
+                                className="max-h-12 sm:max-h-14 md:max-h-16 lg:max-h-20 w-auto object-contain filter drop-shadow-md"
+                            />
                         </motion.div>
                     ))}
                 </div>
