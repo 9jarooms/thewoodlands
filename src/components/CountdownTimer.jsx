@@ -6,7 +6,7 @@ const calculateTimeLeft = () => {
     const difference = +new Date(targetDate) - +new Date();
     if (difference > 0) {
         return {
-            days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+            days: 560, // Hardcoded per user request
             hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
             minutes: Math.floor((difference / 1000 / 60) % 60),
             seconds: Math.floor((difference / 1000) % 60)
@@ -36,7 +36,7 @@ const CountdownTimer = () => {
         <div className="mb-8 md:mb-10 inline-block w-full sm:w-auto">
             <div className="text-gold text-xs sm:text-sm font-bold uppercase tracking-[0.2em] mb-4 flex items-center">
                 <span className="bg-gold h-px flex-grow mr-4 opacity-50 hidden sm:block"></span>
-                <span className="whitespace-nowrap">Countdown to Wuye's Newest Landmark</span>
+                <span className="whitespace-nowrap">Countdown to Official Handover</span>
                 <span className="bg-gold h-px flex-grow ml-4 opacity-50 hidden sm:block"></span>
             </div>
             <div className="flex gap-3 sm:gap-6">

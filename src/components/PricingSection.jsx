@@ -7,7 +7,6 @@ const units = [
     { type: '3 Bed Flat (Standard)', size: '231 sqm', standardPrice: '₦237,500,000', offtakerPrice: '₦178,000,000' },
     { type: '3 Bed Flat (Luxury)', size: '260 sqm', standardPrice: '₦284,000,000', offtakerPrice: '₦213,000,000' },
     { type: '4 Bed Terrace', size: '330 sqm', standardPrice: '₦462,000,000', offtakerPrice: '₦346,500,000' },
-    { type: '5 Bed Semi Detached', size: '450 sqm', standardPrice: '₦636,000,000', offtakerPrice: '₦477,000,000' },
     { type: '6 Bed Standalone', size: '510 sqm', standardPrice: '₦780,000,000', offtakerPrice: '₦585,000,000' },
 ];
 
