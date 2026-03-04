@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import heroBg from '../assets/hero-bg-final.jpg';
 import heroBgMobile from '../assets/hero-bg-final-mobile.jpg';
+import heroBgWebp from '../assets/hero-bg-final.webp';
+import heroBgMobileWebp from '../assets/hero-bg-final-mobile.webp';
 import CountdownTimer from './CountdownTimer';
 
 const WHATSAPP_URL = "https://wa.me/2348092555222?text=Hello%2C%20I%20am%20interested%20in%20The%20Woodlands%2C%20please%20send%20me%20the%20full%20project%20details.";
@@ -11,15 +13,22 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center text-white overflow-hidden bg-coffee">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroBg}
-          srcSet={`${heroBgMobile} 800w, ${heroBg} 1920w`}
-          sizes="(max-width: 768px) 100vw, 100vw"
-          alt="The Woodlands Luxury Apartments Abuja"
-          className="w-full h-full object-cover"
-          loading="eager"
-          fetchPriority="high"
-        />
+        <picture>
+          <source
+            srcSet={`${heroBgMobileWebp} 800w, ${heroBgWebp} 1920w`}
+            sizes="(max-width: 768px) 100vw, 100vw"
+            type="image/webp"
+          />
+          <img
+            src={heroBg}
+            srcSet={`${heroBgMobile} 800w, ${heroBg} 1920w`}
+            sizes="(max-width: 768px) 100vw, 100vw"
+            alt="The Woodlands Luxury Apartments Abuja"
+            className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
       </div>
 
